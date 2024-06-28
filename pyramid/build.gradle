@@ -23,7 +23,7 @@ android {
                 install "lxml"
                 install "requests"
                 install 'pycryptodome'
-                install 'onnxruntime=1.18.0'
+                install 'onnxruntime==1.18.0'
             }
         }
     }
