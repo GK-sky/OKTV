@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        maven { url "https://chaquo.com/maven" } //添加行
+    }
+    dependencies {
+        classpath "com.chaquo.python:gradle:14.0.2" //添加行
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
 plugins {
     id 'com.android.library'
     id 'com.chaquo.python' version '14.0.2' apply false
@@ -47,15 +56,7 @@ android {
         }
     }
 }
-buildscript {
-    repositories {
-        maven { url "https://chaquo.com/maven" } //添加行
-    }
-    dependencies {
-        classpath "com.chaquo.python:gradle:14.0.2" //添加行
-        classpath 'com.android.tools.build:gradle:3.5.0'
-    }
-}
+
 dependencies {
     implementation project(':catvod')
 }
