@@ -4,7 +4,6 @@ buildscript {
     }
     dependencies {
         classpath "com.chaquo.python:gradle:14.0.2" //添加行
-        classpath 'com.android.tools.build:gradle:9.0'
     }
 }
 plugins {
