@@ -22,9 +22,12 @@ android {
             pip {
                 install "lxml"
                 install "requests"
+
                 install 'pycryptodome'
                 install 'beautifulsoup4'
                 install 'pytesseract'
+                install 'Telethon'
+                install 'quart'
             }
         }
     }
