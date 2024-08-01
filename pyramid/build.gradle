@@ -28,6 +28,7 @@ android {
                 install 'pytesseract'
                 install 'Telethon'
                 install 'quart'
+                install 'ddddocr'
             }
         }
     }
