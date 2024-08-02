@@ -1,7 +1,14 @@
 package com.fongmi.android.tv.api;
 
+import static org.chromium.base.ThreadUtils.runOnUiThread;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Looper;
+import android.provider.Settings;
 import android.util.Base64;
 
+import com.fongmi.android.tv.App;
 import com.fongmi.android.tv.utils.UrlUtil;
 import com.github.catvod.net.OkHttp;
 import com.github.catvod.utils.Asset;
@@ -11,6 +18,8 @@ import com.github.catvod.utils.Util;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,9 +68,12 @@ public class Decoder {
     private static String getData(String url) {
         if (url.startsWith("file")) return Path.read(url);
         if (url.startsWith("assets")) return Asset.read(url);
-        if (url.startsWith("http")) return OkHttp.string(url);
+        HashMap<String, String> objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("Referer",Settings.Secure.getString(App.get().getContentResolver(), Settings.Secure.ANDROID_ID));
+        if (url.startsWith("http")) return OkHttp.string(url,objectObjectHashMap);
         return "";
     }
+
 
     private static String ecb(String data, String key) throws Exception {
         SecretKeySpec spec = new SecretKeySpec(padEnd(key).getBytes(), "AES");
