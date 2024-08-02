@@ -128,8 +128,8 @@ public class SettingCustomFragment extends BaseFragment {
     }
 
     private void setConfigCache(View view) {
-        int index = Setting.getConfigCache();
-        Setting.putConfigCache(index = index == configCache.length - 1 ? 0 : ++index);
+        int index = 0;
+        Setting.putConfigCache(index);
         mBinding.configCacheText.setText(configCache[index]);
     }
 
